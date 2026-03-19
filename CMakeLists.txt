@@ -17,6 +17,8 @@ qt_add_qml_module(apptodo
     URI todo
     QML_FILES
         Main.qml
+    RESOURCES
+        "public/images/image1.jpg"
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
