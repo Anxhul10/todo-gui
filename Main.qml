@@ -42,7 +42,11 @@ Window {
 
                 delegate: Task {
                     task: model.task
+                    onRemove: {
+                        taskmodel.remove(index)
+                    }
                 }
+
             }
         }
         
