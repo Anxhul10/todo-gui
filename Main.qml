@@ -9,6 +9,10 @@ Window {
     visible: true
     title: qsTr("todo")
 
+    ListModel {
+        id: taskmodel
+    }
+
     Rectangle {
         anchors.fill: parent
         color: "#00414a"
@@ -21,11 +25,23 @@ Window {
                 width: 250
                 placeholderText: "Enter a task..."
             }
-
+            
             Button {
                 text: "Add Task"
                 onClicked: {
-                    console.log("task:", input.text)
+                    if(input.text !== "") {
+                        taskmodel.append({task: input.text})
+                        input.text = ""
+                    }
+                }
+            }
+            ListView {
+                width: 100
+                height: 200
+                model: taskmodel
+
+                delegate: Task {
+                    task: model.task
                 }
             }
         }
